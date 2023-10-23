@@ -6,16 +6,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            bool boolFromStr = bool.Parse("true");
-            int intFromStr = int.Parse("100");
-            double dblFromStr = double.Parse("1.234");
-
-            string strVal = dblFromStr.ToString();
-            Console.WriteLine($"Data type : {strVal.GetType()}");
-            double dblNum = 12.345;
-            Console.WriteLine($"Integer : {(int)dblNum}");
-            int intNum = 10;
-            long longNum = intNum;
+            Console.WriteLine("Currency : {0:c}",23.553);
+            Console.WriteLine("padd w 0 : {0:d4}", 23);
+            Console.WriteLine("3 Decimals : {0:f3}", 23.3434443);
+            Console.WriteLine("Commas : {0:n4}", 2300);
         }
     }
 }
