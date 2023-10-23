@@ -6,21 +6,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            bool canIVote = true;
+            Console.WriteLine("Biggest double : {0}", Double.MaxValue);
+            double dblPiVal = 3.14159265358979;
+            double dblBigNumber = 3.00000000002;
+            Console.WriteLine("DBL : PI + BigNum = {0}", dblPiVal + dblBigNumber);
 
-            Console.WriteLine("Biggest Integer : {0}", int.MaxValue);
-            Console.WriteLine("Smallest integer : {0}", int.MinValue);
-
-            Console.WriteLine("biggest long : {0}", long.MaxValue);
-            Console.WriteLine("Smallest long : {0}", long.MinValue);
-
-            decimal decPiVal = 3.14159265M;
-            decimal decBigNum = 3.0000000000000000000000011M;
-            Console.WriteLine("DEC : PI + bigNum = {0}", decPiVal + decBigNum);
-
-            Console.WriteLine("bigst decim: {0}", decimal.MaxValue);
-            Console.WriteLine("small decim: {0}", decimal.MinValue);
-
+            Console.WriteLine("Biggest Float : {0}", float.MaxValue);
+            double fltPiVal = 3.141592F;
+            double fltBigNumber = 3.000002F;
+            Console.WriteLine("FLT : PI + BigNum = {0}", fltPiVal + fltBigNumber);
         }
     }
 }
