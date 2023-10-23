@@ -6,15 +6,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Biggest double : {0}", Double.MaxValue);
-            double dblPiVal = 3.14159265358979;
-            double dblBigNumber = 3.00000000002;
-            Console.WriteLine("DBL : PI + BigNum = {0}", dblPiVal + dblBigNumber);
+            bool boolFromStr = bool.Parse("true");
+            int intFromStr = int.Parse("100");
+            double dblFromStr = double.Parse("1.234");
 
-            Console.WriteLine("Biggest Float : {0}", float.MaxValue);
-            double fltPiVal = 3.141592F;
-            double fltBigNumber = 3.000002F;
-            Console.WriteLine("FLT : PI + BigNum = {0}", fltPiVal + fltBigNumber);
+            string strVal = dblFromStr.ToString();
+            Console.WriteLine($"Data type : {strVal.GetType()}");
+            double dblNum = 12.345;
+            Console.WriteLine($"Integer : {(int)dblNum}");
+            int intNum = 10;
+            long longNum = intNum;
         }
     }
 }
