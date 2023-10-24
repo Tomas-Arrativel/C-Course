@@ -4,6 +4,18 @@ namespace ConsoleApp1
 {
     public class Program
     {
+        // ------ FUNCTIONS ------
+
+        static void PrintArray(int[] intArray, string mess)
+        {
+            foreach(int k in intArray)
+            {
+                Console.WriteLine("{0} : {1}", mess, k);
+            }
+        }
+
+        // ------ END OF FUNCTIONS ------
+
         static void Main(string[] args)
         {
             int[] favNums = new int[3];
@@ -21,9 +33,19 @@ namespace ConsoleApp1
             Console.WriteLine("-------------------");
             string[,] custName = new string[2, 2] { { "Bob", "Smaith" }, { "Sally", "Smith" } };
             Console.WriteLine("MD Value : {0}", custName.GetValue(0, 1));
-            for (int k = 0; k < custName.GetLength(0); k++) {
-                
+           
+            for (int j = 0; j < custName.GetLength(0); j++)
+            {
+                for (int k = 0; k < custName.GetLength(0); k++)
+                {
+                    Console.WriteLine("{0} ", custName[j, k]);
+                }
             }
+
+            int[] randNums = { 1, 4, 2, 6, 7 };
+            PrintArray(randNums, "ForEach");
+        
+            Console.WriteLine("-------------------");
         }
     }
 }
