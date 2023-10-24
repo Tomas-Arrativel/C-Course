@@ -46,6 +46,24 @@ namespace ConsoleApp1
             PrintArray(randNums, "ForEach");
         
             Console.WriteLine("-------------------");
+
+            Array.Sort(randNums);
+            Array.Reverse(randNums);
+            Console.WriteLine("1 at index : {0}", Array.IndexOf(randNums, 1));
+            randNums.SetValue(0, 1);
+            int[] srcArray = { 1, 2, 3 };
+            int[] destArray = new int[2];
+            int startInd = 0;
+            int length = 2;
+            Array.Copy(srcArray, startInd, destArray, 0, length);
+            PrintArray(destArray, "Copy");
+            Array anotherArray = Array.CreateInstance(typeof(int), 10);
+            srcArray.CopyTo(anotherArray, 5);
+            foreach(int m in anotherArray)
+            {
+                Console.WriteLine("copyTo : {0}", m);
+            }
+
         }
     }
 }
