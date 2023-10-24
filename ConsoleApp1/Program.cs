@@ -18,52 +18,30 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int[] favNums = new int[3];
-            favNums[0] = 23;
-            Console.WriteLine("favNum 0 : {0}", favNums[0]);
-            string[] customers = { "Bob", "Alice", "Sue" };
-            var employees = new[] { "Mike", "Paul", "Rick" };
-            object[] randomArray = { "paul", 45, 1.234 };
-            Console.WriteLine("randomArray 0 : {0}", randomArray[0].GetType());
-            Console.WriteLine("Array Size : {0}", randomArray.Length);
-            for (int i = 0; i < randomArray.Length; i++)
-            {
-                Console.WriteLine("Array : {0} : Value : {1}", i, randomArray[i]);
-            }
-            Console.WriteLine("-------------------");
-            string[,] custName = new string[2, 2] { { "Bob", "Smaith" }, { "Sally", "Smith" } };
-            Console.WriteLine("MD Value : {0}", custName.GetValue(0, 1));
-           
-            for (int j = 0; j < custName.GetLength(0); j++)
-            {
-                for (int k = 0; k < custName.GetLength(0); k++)
-                {
-                    Console.WriteLine("{0} ", custName[j, k]);
-                }
-            }
+            // Relational Operators : < > >= <= == !=
+            // Logical Operators : && || !
 
-            int[] randNums = { 1, 4, 2, 6, 7 };
-            PrintArray(randNums, "ForEach");
-        
-            Console.WriteLine("-------------------");
+            int age = 17;
 
-            Array.Sort(randNums);
-            Array.Reverse(randNums);
-            Console.WriteLine("1 at index : {0}", Array.IndexOf(randNums, 1));
-            randNums.SetValue(0, 1);
-            int[] srcArray = { 1, 2, 3 };
-            int[] destArray = new int[2];
-            int startInd = 0;
-            int length = 2;
-            Array.Copy(srcArray, startInd, destArray, 0, length);
-            PrintArray(destArray, "Copy");
-            Array anotherArray = Array.CreateInstance(typeof(int), 10);
-            srcArray.CopyTo(anotherArray, 5);
-            foreach(int m in anotherArray)
+            if((age >= 5) && (age <=7))
             {
-                Console.WriteLine("copyTo : {0}", m);
+                Console.WriteLine("Go to elementary school");
             }
+            if ((age > 7) && (age < 13))
+            {
+                Console.WriteLine("Go to middle school");
+            }
+            if ((age > 13) && (age < 19))
+            {
+                Console.WriteLine("Go to high school");
+            }
+            else { Console.WriteLine("Go to college"); }
 
+            if ((age < 14) || (age > 67))
+            {
+                Console.WriteLine("You shouldn't work");
+            }
+            Console.WriteLine("! true = " + (!true));
         }
     }
 }
