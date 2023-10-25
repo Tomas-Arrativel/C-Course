@@ -23,7 +23,7 @@ namespace ConsoleApp1
 
             int age = 17;
 
-            if((age >= 5) && (age <=7))
+            if ((age >= 5) && (age <= 7))
             {
                 Console.WriteLine("Go to elementary school");
             }
@@ -42,6 +42,10 @@ namespace ConsoleApp1
                 Console.WriteLine("You shouldn't work");
             }
             Console.WriteLine("! true = " + (!true));
+
+            bool canDrive = age >= 16 ? true : false;
+
+            
         }
     }
 }
