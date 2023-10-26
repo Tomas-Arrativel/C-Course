@@ -14,22 +14,18 @@ namespace ConsoleApp1
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
        
-        static double GetSum(double x = 1, double y = 1)
+        static void DoubleIt(int x, out int solution)
         {
-            double temp = x;
-            x = y;
-            y = temp;
-            return x + y;
+            solution = x * 2;
         }
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            double x = 5;
-            double y = 4;
-            Console.WriteLine("5 + 4 = {0}", GetSum(x, y));
-            Console.WriteLine("x = {0}", x);
+            int solution;
+            DoubleIt(15, out solution);
+            Console.WriteLine("15 * 2 = {0}", solution);
         }
     }
 }
