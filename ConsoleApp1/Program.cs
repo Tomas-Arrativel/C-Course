@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -27,31 +29,25 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            double num1 = 5;
-            double num2 = 0;
-            try
-            {
-                Console.WriteLine("5 / 0 = {0}", DoDivision(num1, num2));
-            }
+            StringBuilder sb = new StringBuilder("Random Text");
+            StringBuilder sb2 = new StringBuilder("More stuff that is very important", 256);
+            Console.WriteLine("Capacity : {0}", sb2.Capacity);
+            Console.WriteLine("Length : {0}", sb2.Length);
+            sb2.AppendLine("\nMore important text");
+            CultureInfo enUS = CultureInfo.CreateSpecificCulture("en-US");
+            string bestCust = "Bob Smith";
+            sb2.AppendFormat(enUS, "Best Customer : {0}", bestCust);
+            Console.WriteLine(sb2.ToString());
+            sb2.Replace("text", "characters");
+            Console.WriteLine(sb2.ToString());
+            sb2.Clear();
+            sb2.Append("Random text");
+            Console.WriteLine(sb.Equals(sb2));
+            sb2.Insert(11, " that's great");
+            Console.WriteLine(sb2.ToString());
+            sb2.Remove(11, 7);
+            Console.WriteLine(sb2.ToString());
 
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("You can't divide by zero");
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-            }
-
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred");
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-            }
-
-            finally
-            {
-                Console.WriteLine("Cleaning Up");
-            }
         }
     }
 }
