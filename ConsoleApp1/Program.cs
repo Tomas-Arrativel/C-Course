@@ -8,28 +8,50 @@ namespace ConsoleApp1
 
         static void PrintArray(int[] intArray, string mess)
         {
-            foreach(int k in intArray)
+            foreach (int k in intArray)
             {
                 Console.WriteLine("{0} : {1}", mess, k);
             }
+        }
+
+        static double DoDivision(double x, double y)
+        {
+            if (y == 0)
+            {
+                throw new System.DivideByZeroException();
+            }
+            return x / y;
         }
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            Random rnd = new Random();
-            int secretNumber = rnd.Next(1, 11);
-            int numberGuessed = 0;
-            Console.WriteLine("Random num : ", secretNumber);
-
-            do
+            double num1 = 5;
+            double num2 = 0;
+            try
             {
-                Console.WriteLine("Enter a number between 1 & 10");
-                numberGuessed = Convert.ToInt32(Console.ReadLine());
-            } while (secretNumber != numberGuessed);
+                Console.WriteLine("5 / 0 = {0}", DoDivision(num1, num2));
+            }
 
-            Console.WriteLine("You guessed it, secret number was {0}", secretNumber);
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("You can't divide by zero");
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred");
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+            }
+
+            finally
+            {
+                Console.WriteLine("Cleaning Up");
+            }
         }
     }
 }
