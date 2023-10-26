@@ -14,22 +14,21 @@ namespace ConsoleApp1
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
        
-        public static void Swap(ref int num3, ref int num4)
+         static double GetSumMore(params double[] nums) 
         {
-            int temp = num3;
-            num3 = num4;
-            num4 = temp;
+            double sum = 0;
+            foreach (int i in nums)
+            {
+                sum += i;
+            }
+            return sum;
         }
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            int num3 = 10;
-            int num4 = 20;
-            Console.WriteLine("Before Swap num1 : {0} num2 : {1}", num3, num4);
-            Swap(ref num3, ref num4);
-            Console.WriteLine("After Swap num1 : {0} num2 : {1}", num3, num4);
+            Console.WriteLine("1+2+3 = {0}", GetSumMore(1, 2, 3));
 
         }
     }
