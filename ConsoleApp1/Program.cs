@@ -14,20 +14,22 @@ namespace ConsoleApp1
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
        
-        private static void SayHello()
+        static double GetSum(double x = 1, double y = 1)
         {
-            string name = "";
-            Console.Write("What is your name : ");
-            name = Console.ReadLine();
-            Console.WriteLine("Hello {0}", name);
+            double temp = x;
+            x = y;
+            y = temp;
+            return x + y;
         }
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            SayHello();
-
+            double x = 5;
+            double y = 4;
+            Console.WriteLine("5 + 4 = {0}", GetSum(x, y));
+            Console.WriteLine("x = {0}", x);
         }
     }
 }
