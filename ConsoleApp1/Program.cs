@@ -14,21 +14,16 @@ namespace ConsoleApp1
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
        
-         static double GetSumMore(params double[] nums) 
+         static void PrintInfo(string name, int zipcode)
         {
-            double sum = 0;
-            foreach (int i in nums)
-            {
-                sum += i;
-            }
-            return sum;
+            Console.WriteLine("{0} lives in the zipcode {1}", name, zipcode);
         }
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            Console.WriteLine("1+2+3 = {0}", GetSumMore(1, 2, 3));
+            PrintInfo(zipcode: 15147, name: "Tomás Arrativel");
 
         }
     }
