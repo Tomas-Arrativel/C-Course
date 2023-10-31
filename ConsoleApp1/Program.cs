@@ -28,6 +28,16 @@ namespace ConsoleApp1
             rect2 = rect1;
             rect1.length = 33;
             Console.WriteLine("rect2.length : {0}", rect2.length);
+
+            Animal fox = new Animal()
+            {
+                name = "Red",
+                sound = "Raaaaw"
+            };
+
+            Console.WriteLine("# of Animals {0}", Animal.GetNumAnimals());
+
+            Console.WriteLine("Area of Rectangle : {0}", ShapeMath.GetArea("Rectangle", 5, 6));
         }
 
         struct Rectangle
