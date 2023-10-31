@@ -38,6 +38,10 @@ namespace ConsoleApp1
             Console.WriteLine("# of Animals {0}", Animal.GetNumAnimals());
 
             Console.WriteLine("Area of Rectangle : {0}", ShapeMath.GetArea("Rectangle", 5, 6));
+
+            int? randNum = null;
+            if(randNum == null) { Console.WriteLine("randNum is Null"); }
+            if(!randNum.HasValue) { Console.WriteLine("randNum is null"); }
         }
 
         struct Rectangle
