@@ -14,22 +14,26 @@ namespace ConsoleApp1
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
 
-        
+        static void PaintCar(CarColor cc)
+        {
+            Console.WriteLine("The car was painted {0}, with the code {1}", cc, (int)cc);
+        }
 
         // ------ END OF FUNCTIONS ------
 
+        enum CarColor : byte
+        {
+            Orange = 1,
+            Blue,
+            Green,
+            Red,
+            Yellow
+        }
+
         static void Main(string[] args)
         {
-            DateTime awesomeDate = new DateTime(2004, 9, 5);
-            Console.WriteLine("Day of the week {0}", awesomeDate.DayOfWeek);
-            awesomeDate = awesomeDate.AddDays(6);
-            awesomeDate = awesomeDate.AddMonths(1);
-            awesomeDate = awesomeDate.AddYears(2);
-            Console.WriteLine("New Date : {0}", awesomeDate.Date);
-
-            TimeSpan lunchTime = new TimeSpan(13, 30, 0);
-            lunchTime = lunchTime.Subtract(new TimeSpan(0, 15, 0));
-            Console.WriteLine("New time : {0}", lunchTime.ToString());
+            CarColor car1 = CarColor.Blue;
+            PaintCar(car1);
         }
     }
 }
