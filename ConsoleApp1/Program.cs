@@ -13,18 +13,26 @@ namespace ConsoleApp1
         // Public: Can be accessed from another cl
         // Private: Can't be accessed from another cl
         // Protected: Can't be accessed by class but can be by derived classes
-       
-         static void PrintInfo(string name, int zipcode)
+
+        static double GetSum2(double x = 1, double y = 1)
         {
-            Console.WriteLine("{0} lives in the zipcode {1}", name, zipcode);
+            return x + y;
         }
+        static double GetSum2(string x = "1", string y = "1")
+        {
+            double dblX = Convert.ToDouble(x);
+            double dblY = Convert.ToDouble(y);
+            return dblX + dblY;
+        }
+
+
 
         // ------ END OF FUNCTIONS ------
 
         static void Main(string[] args)
         {
-            PrintInfo(zipcode: 15147, name: "Tomás Arrativel");
-
+            Console.WriteLine("5.0 + 4.5 = {0} double", GetSum2(5.0, 4.5));
+            Console.WriteLine("5.0 + 4.5 = {0} string", GetSum2("5.0", "4.5"));
         }
     }
 }
