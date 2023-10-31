@@ -9,10 +9,25 @@ namespace ConsoleApp1
     class Animal
     {
         private string name;
-        private string sound;
-        public static int numOfAnimals = 0;
-        public const string SHELTER = "Tomi's Home for animals";
-        public readonly int idNum;
+        protected string sound;
+
+        protected AnimalIDInfo animalIDInfo = new AnimalIDInfo();
+
+        public void SetAnimalIDInfo(int idNum, string owner)
+        {
+            animalIDInfo.IDNum = idNum;
+            animalIDInfo.Owner = owner;
+        }
+
+        public void GetAnimalIDInfo()
+        {
+            Console.WriteLine($"{Name} has the id of {animalIDInfo.IDNum} and is owned by {animalIDInfo.Owner}");
+        }
+
+        public virtual void MakeSound()
+        {
+            Console.WriteLine($"{Name} says {Sound}");
+        }
 
         public Animal() : this("No Name", "No Sound") { }
 
@@ -28,30 +43,20 @@ namespace ConsoleApp1
             idNum = rnd.Next(1, 2147483640);
         }
 
-        public void MakeSound()
+        public string Name
         {
-            Console.WriteLine("{0} says {1}", name, sound);
-        }
-        public static int GetNumAnimals()
-        {
-            return numOfAnimals;
-        }
-
-        public void SetName(string name)
-        {
-            if(!name.Any(char.IsDigit))
+            get { return name; }
+            set
             {
-                this.name = name;
-            } else
-            {
-                this.name = "No Name";
-                Console.WriteLine("Name can't contain numbers");
+                if(!name.Any(char.IsDigit))
+                {
+                    name = "No Name";
+                    Console.WriteLine("Can't use numbers in name");
+                } else
+                {
+                    name = value;
+                }
             }
-        }
-
-        public string GetName()
-        {
-            return name;
         }
 
         public string Sound
@@ -70,12 +75,14 @@ namespace ConsoleApp1
             }
         }
 
-        public string Owner { get; set; } = "No Owner";
-
-        public static int NumOfAnimals
+        public class AnimalHealth
         {
-            get { return numOfAnimals; }
-            set { numOfAnimals += value; }
+            public bool HealthyWeight(double height, double weight)
+            {
+                double calc = height / weight;
+                if((calc >= .18) && (calc <= .27)) return true; 
+                else return false;
+            }
         }
     }
 }
